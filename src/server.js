@@ -1,6 +1,6 @@
 const express = require("express");
-import configViewEngine from "./config/viewEngine";
-import initWebRouters from "./routes/web";
+const configViewEngine = require("./config/viewEngine");
+const initWebRouters = require("./routes/web");
 const bodyParser = require("body-parser");
 const app = express();
 

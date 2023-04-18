@@ -1,5 +1,5 @@
 const express = require("express");
-import chatbotController from "../controllers/chatbotController";
+const chatbotController = require("../controllers/chatbotController");
 const router = express.Router();
 const initWebRouters = (app) => {
   router.get("/", chatbotController.getHomePage);
