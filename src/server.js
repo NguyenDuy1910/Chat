@@ -7,7 +7,8 @@ const app = express();
 configViewEngine(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const PORT = 3000;
 initWebRouters(app);
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("hello");
 });
