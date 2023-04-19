@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start":"node server.js",
+    "build":"echo sucess ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "duy",
