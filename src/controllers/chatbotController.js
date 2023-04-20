@@ -1,4 +1,6 @@
 require("dotenv").config();
+const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const getHomePage = (req, res) => {
   return res.send("xin chao1");
 };
@@ -9,6 +11,8 @@ const postWebhook = (req, res) => {
     body.entry.forEach(function (entry) {
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
+      let sender_psid = webhook_event.sender_id;
+      console.log("Sender PSID:" + sender_psid);
     });
 
     res.status(200).send("OK");
@@ -20,7 +24,6 @@ const postWebhook = (req, res) => {
 
 const getWebhook = (req, res) => {
   // Parse the query params
-  let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
   console.log(VERIFY_TOKEN);
 
