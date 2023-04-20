@@ -1,5 +1,5 @@
 require("dotenv").config();
-import request from "request";
+const request = require("request");
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const getHomePage = (req, res) => {
