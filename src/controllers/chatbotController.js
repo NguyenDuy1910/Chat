@@ -139,23 +139,26 @@ function callSendAPI(sender_psid, response) {
     message: response,
   };
 
-  // Send the HTTP request to the Messenger Platform
+  // Send the HTTP request to the Messenger Platform API
   request(
     {
-      uri: "https://graph.facebook.com/v2.6/me/messages",
+      uri: "https://graph.facebook.com/v11.0/me/messages",
       qs: { access_token: MY_VERIFY_TOKEN },
       method: "POST",
       json: request_body,
     },
-    (err, res, body) => {
-      if (!err) {
-        console.log("message sent!");
+    function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log("Message sent successfully!");
+        console.log(body); // Debugging purpose only
       } else {
-        console.error("Unable to send message:" + err);
+        console.error("Unable to send message:" + error);
+        console.error(response); // Debugging purpose only
       }
     }
   );
 }
+
 module.exports = {
   getHomePage: getHomePage,
   getWebhook: getWebhook,
